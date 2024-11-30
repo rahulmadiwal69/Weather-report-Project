@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Update </title>
+    <link rel="stylesheet" href="dist/styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.29.3/index.min.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://api.openweathermap.org 'unsafe-inline';">
+</head>
+<body class="bg-blue-300">
+    <h1 class="text-black text-4xl text-center h-[70px] bg-blue-700 p-5 font-bold">Weather Report</h1>
+    <div class="container h-[calc(100vh-180px)] bg-blue-300 grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-[10px] mt-[10px]">
+
+        <!-- Searching -->
+        <div class="bg-red-200 h-[full] flex flex-col flex-1 p-2 gap-[20px] justify-center align-center md:width-[100%] text-white rounded ml-[10%]   ">
+            <label for="cityName" class="font-bold text-lg text-black">Enter city name</label>
+            <div class="bg-gray-100 rounded">
+                <input type="text" id="cityname" placeholder="E.g., New York, London, Tokyo" class="p-2 text-black rounded w-[80%]">
+                <span>
+
+                    <button id="dropdownBtn" class="bg-gray-100 p-2 text-black  w-[10%] font-light text-sm">
+                        <img src="src/dropdown.png" alt="" class="rounded text-black">
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <ul id="dropdownMenu" class="absolute bg-black border mt-2 rounded shadow-lg hidden">
+                        <!-- Dynamic city list will be populated here -->
+                    </ul>
+
+                </span>
+            </div>
+            
+            
+            <button class="bg-blue-700 p-2 rounded" id="searchBtn">Search</button>
+            <div class="flex flex-row gap-[20px] items-center justify-center">
+                <div class="h-[1px] bg-gray-500 w-[50%]"></div>
+                <div class="text-black">or</div>
+                <div class="h-[1px] bg-gray-500 w-[50%]"></div>
+            </div>
+            <button class="bg-green-600 p-2 rounded" id="currentLocation">Use current Location</button>
+        </div>
+
+        <!-- Current Weather  -->
+        <div class="h-[full] col-span-3 rounded flex flex-col gap-[20px] ">
+            <div class="w-[full] h-[35%] bg-blue-700 rounded flex gap-[40px]   text-white flex-col items-center  justify-center currweather text-lg font-bold p-10" id="weatherInfo">
+                
+                <h1>Weather report will be shown here</h1>
+            </div>
+            <div class="font-bold h-[10%] bg-blue-300 text-lg pt-[2.5%] rounded">
+                <h1>5-Days Forecast</h1>
+            </div>
+            <div class="rounded grid md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5 h-[55%] gap-[20px] bg-blue-300 mt-[10px] justify-center align-center" id="Weathercards">
+                <!-- here will add the past data-->
+                 
+            </div>
+        </div>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+</html>
